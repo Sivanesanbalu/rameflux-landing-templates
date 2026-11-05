@@ -1,0 +1,16 @@
+name: Check static marketplace
+on:
+  push:
+  pull_request:
+jobs:
+  smoke:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout source
+        uses: actions/checkout@v4
+      - name: Verify HTML paths and matching free-download ZIP
+        run: python3 scripts/check_site.py
+      - name: Verify JavaScript parses
+        run: |
+          node --check site/assets/main.js
+          node --check site/templates/orbit/script.js

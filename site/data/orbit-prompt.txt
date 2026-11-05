@@ -1,0 +1,9 @@
+Build an original, high-end, responsive landing page for a fictional AI productivity platform named “Orbit”. The visual direction is futuristic but warm: midnight ink (#080c17), translucent navy panels, electric lime (#d8ff85), periwinkle (#a49aff), and white typography. Use a clean bold sans-serif, generous whitespace, subtle grain/grid textures, and careful hierarchy. Do not copy another site's protected artwork or branding.
+
+Structure: (1) accessible top navigation with Orbit logo and working section links; (2) hero with badge “THE INTELLIGENT WORKSPACE”, headline “A better orbit for your best work.”, supporting text and two CTAs; (3) an original CSS-animated orbital/radar illustration with glowing rings, orbiting markers, floating task cards and a lightweight dashboard preview; (4) feature cards for focus, automations and visibility; (5) simple three-step workflow; (6) final CTA and footer. Make every button meaningful: anchor links should scroll to real sections. Do not pretend the demo has a real login, live analytics or backend.
+
+Motion: smooth CSS transforms, floating UI elements, subtle staggered reveals, hover details, and one optional original Lottie animation with a CSS fallback. Respect prefers-reduced-motion. No heavy 3D runtime required.
+
+Implementation: semantic HTML5, modern CSS, vanilla JavaScript only (no backend), keyboard focus indicators, responsive desktop/tablet/mobile layout, ARIA where needed, lazy external assets, clear file organization. The final result must deploy as a static site to Cloudflare Pages and remain readable if animation libraries do not load.
+
+Deliver the actual working source code, not a screenshot or a generic description. Include instructions to customize colors, brand, text, sections and the deployment steps.
