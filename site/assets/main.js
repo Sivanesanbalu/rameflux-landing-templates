@@ -3,6 +3,7 @@
 const ORBIT_PROMPT_URL = '/data/orbit-prompt.txt';
 const FALLBACK_PROMPT = 'Build an original responsive animated AI SaaS landing page called Orbit. Use midnight backgrounds, electric lime accents, accessible HTML/CSS/JS, animated orbital hero, feature grid, real section links, reduced-motion support and static Cloudflare Pages deployment. Deliver real working code.';
 let orbitPrompt = FALLBACK_PROMPT;
+let activePrompt = FALLBACK_PROMPT;
 const promptText = document.querySelector('#promptText');
 const lovableLink = document.querySelector('#lovableLink');
 const toast = document.querySelector('#toast');
@@ -43,21 +44,27 @@ async function loadPrompt() {
   } catch (error) {
     orbitPrompt = FALLBACK_PROMPT;
   }
-  promptText.textContent = orbitPrompt;
-  // Lovable's documented Build with URL feature prefills the prompt; it does not auto-submit.
-  lovableLink.href = `https://lovable.dev/#prompt=${encodeURIComponent(orbitPrompt)}`;
+  setActivePrompt(orbitPrompt, 'ORBIT / FULL LANDING PAGE');
+}
+function setActivePrompt(value, label) {
+  activePrompt = value;
+  promptText.textContent = value;
+  const title = document.querySelector('#promptLabel');
+  if (title) title.textContent = label;
+  // The AI editor receives a prefilled prompt for the visitor to review.
+  lovableLink.href = `https://lovable.dev/#prompt=${encodeURIComponent(value)}`;
 }
 loadPrompt();
 
 document.querySelector('#copyPrompt').addEventListener('click', async () => {
-  const copied = await copyText(orbitPrompt);
-  showToast(copied ? 'Full Orbit prompt copied to clipboard.' : 'Clipboard unavailable. Select and copy the prompt text above.');
+  const copied = await copyText(activePrompt);
+  showToast(copied ? 'Full motion prompt copied to clipboard.' : 'Clipboard unavailable. Select and copy the prompt text above.');
 });
 
 document.querySelector('#chatgptButton').addEventListener('click', async () => {
   // Open the browser window synchronously from the user gesture to avoid popup blocking.
   window.open('https://chatgpt.com/', '_blank', 'noopener,noreferrer');
-  const copied = await copyText(orbitPrompt);
+  const copied = await copyText(activePrompt);
   showToast(copied ? 'Prompt copied — paste it into ChatGPT.' : 'ChatGPT opened. Copy the prompt manually from the box above.');
 });
 
@@ -85,3 +92,5 @@ mobileButton.addEventListener('click', () => setViewport(true));
 dialog.addEventListener('click', event => { if (event.target === dialog) dialog.close(); });
 dialog.addEventListener('close', () => lastPreviewTrigger?.focus());
 document.querySelector('#year').textContent = String(new Date().getFullYear());
+
+window.Frameflux = { setActivePrompt, copyText, showToast, openPreview, getOrbitPrompt: () => orbitPrompt };

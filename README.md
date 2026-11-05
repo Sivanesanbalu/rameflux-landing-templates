@@ -71,7 +71,7 @@ Create the empty repo at https://github.com/new (don't auto-add README). In this
 git init -b main
 git add .
 git commit -m "feat: launch Frameflux with free Orbit template"
-git remote add origin https://github.com/Sivanesanbalu/rameflux-landing-templates.git
+git remote add origin https://github.com/YOUR_USERNAME/frameflux-landing-templates.git
 git push -u origin main
 ```
 
@@ -87,7 +87,7 @@ Frameflux and Orbit are original example brands, not related to MotionSites. The
 - [x] Responsive live preview and source ZIP
 - [x] AI prompt handoff
 - [x] Cloudflare Pages configuration instructions
-- [x] GitHub repository creation and first remote push
+- [ ] GitHub repository creation and first remote push
 - [ ] Cloudflare-connected public deployment
 - [ ] More templates, filters, detailed product pages
 - [ ] Payment, licensing, accounts, purchases and order emails
