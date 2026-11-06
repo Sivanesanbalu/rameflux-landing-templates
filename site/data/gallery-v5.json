@@ -1,0 +1,98 @@
+[
+  {
+    "id": "noir",
+    "title": "NOIR MOTOR CLUB",
+    "category": "Automotive",
+    "type": "Landing Page",
+    "order": 1,
+    "color": "#f04939",
+    "subtitle": "Built for the night",
+    "headline": "NO RULES. JUST THE ROAD.",
+    "detail": "A cinematic automotive experience: sharp typography, moody garage lighting, and a dramatic vehicle entrance.",
+    "prompt": "Design an original premium automotive landing page for NOIR MOTOR CLUB. Black studio atmosphere, red chrome highlights, detailed vector car hero, staggered lighting and reveal animations, minimal navigation, striking serif headline, bold CTA, responsive layout. Implement real HTML/CSS/JS interactions, respect reduced motion, no mock functionality."
+  },
+  {
+    "id": "maison",
+    "title": "MAISON / 27",
+    "category": "Ecommerce",
+    "type": "Landing Page",
+    "order": 2,
+    "color": "#b8a79e",
+    "subtitle": "Spring / Summer 2027",
+    "headline": "A NEW SILHOUETTE.",
+    "detail": "An editorial fashion collection with elegant typography, runway-inspired columns and a refined material palette.",
+    "prompt": "Create a luxury fashion collection landing page for MAISON / 27. Design a minimalist e-commerce editorial with off-white canvas, refined serif headings, runway silhouettes, animated horizontal panels, clean product information and accessible calls to action. Responsive, original artwork, understated transitions, production-quality HTML/CSS/JavaScript."
+  },
+  {
+    "id": "terra",
+    "title": "TERRA / REWILD",
+    "category": "Nature",
+    "type": "3D",
+    "order": 3,
+    "color": "#99bf71",
+    "subtitle": "Earth is a living system",
+    "headline": "GROW A BETTER TOMORROW.",
+    "detail": "A dreamy conservation site with an animated floating eco-island, atmosphere, and soft landscape motion.",
+    "prompt": "Build a premium conservation landing page called TERRA / REWILD. Mint and pale sky canvas, dreamy floating green island made from original SVG/CSS shapes, animated orbiting leaves and environmental data, sophisticated typography, accessible CTA, smooth gentle motion with reduced-motion fallbacks and responsive sections."
+  },
+  {
+    "id": "signal",
+    "title": "SIGNAL THEORY",
+    "category": "AI",
+    "type": "Apps",
+    "order": 4,
+    "color": "#d9e1ff",
+    "subtitle": "Ideas become intelligence",
+    "headline": "THINK BEYOND THE INTERFACE.",
+    "detail": "An AI intelligence platform with a glowing point-cloud brain, technical controls and sci-fi depth.",
+    "prompt": "Create an original dark AI platform website called SIGNAL THEORY with large editorial type and a luminous animated neural / point cloud visualization (Canvas or efficient SVG). Use ink black, prismatic violet and violet-blue, sophisticated small tech labels, a single primary action and responsive accessible interactive design. Respect reduced motion."
+  },
+  {
+    "id": "atelier",
+    "title": "ATELIER FORM",
+    "category": "Portfolio",
+    "type": "Portfolio",
+    "order": 5,
+    "color": "#c9b8a0",
+    "subtitle": "Form follows feeling",
+    "headline": "SPACES FOR THE WAY WE LIVE.",
+    "detail": "Architectural minimalism: sand-toned grids, sculptural building illustration and refined asymmetry.",
+    "prompt": "Design an original architectural studio website named ATELIER FORM. Editorial contemporary layout with warm greige, monumental architectural forms, thin lines and fine small labels, animated sunlight shadow reveal, understated serif and sans pairing. Include meaningful portfolio and inquiry anchors, desktop and mobile layouts, accessible movement."
+  },
+  {
+    "id": "kinetic",
+    "title": "KINETIC STUDIO",
+    "category": "Creative",
+    "type": "Hero",
+    "order": 6,
+    "color": "#e76838",
+    "subtitle": "Design is not decoration",
+    "headline": "THE FUTURE LOOKS LOUD.",
+    "detail": "A high-energy creative agency identity with kinetic typography, ultra-bright orange and an interactive starburst.",
+    "prompt": "Build a kinetic visual agency website for KINETIC STUDIO. Use electrifying vermilion-orange backdrop, oversized condensed typography, an animated spiky kinetic starburst with gentle cursor parallax, offset layouts and sharp black typography. Deliver real HTML/CSS/JS, intuitive interactions and reduced-motion support."
+  },
+  {
+    "id": "fluxpay",
+    "title": "FLUXPAY",
+    "category": "Fintech",
+    "type": "SaaS",
+    "order": 7,
+    "color": "#c3d6ff",
+    "subtitle": "Money in perfect motion",
+    "headline": "MAKE MORE ROOM FOR WHAT MATTERS.",
+    "detail": "Fintech in cool ice blue, with a believable animated payments dashboard and analytical components.",
+    "prompt": "Create a modern Fintech SaaS landing page called FLUXPAY with a rich ice-blue palette, dark navy type, interactive balance card, animated real-looking demo chart, transaction UI (clearly labelled sample data), strong conversion CTA, responsive cards and functional anchors. Semantic HTML, CSS animations, lightweight JS and accessibility."
+  },
+  {
+    "id": "orbit",
+    "title": "ORBIT / FREE",
+    "category": "SaaS",
+    "type": "Landing Page",
+    "order": 8,
+    "color": "#d8ff85",
+    "subtitle": "Complete source included",
+    "headline": "A BETTER ORBIT FOR YOUR BEST WORK.",
+    "detail": "Our free, real AI workspace landing-page template. Includes editable source files and original Lottie animation.",
+    "prompt": "Build an original, high-end, responsive landing page for a fictional AI productivity platform named Orbit. Use midnight ink, electric lime and periwinkle, animated orbital hero, feature cards, clear CTA, meaningful anchors, accessible responsive implementation. Deliver working source code."
+  }
+]

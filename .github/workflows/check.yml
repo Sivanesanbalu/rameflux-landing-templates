@@ -1,19 +1,13 @@
-name: Check static marketplace
+name: Validate Frameflux website
 on:
   push:
   pull_request:
 jobs:
-  smoke:
+  build-check:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout source
-        uses: actions/checkout@v4
-      - name: Verify HTML paths and matching free-download ZIP
+      - uses: actions/checkout@v4
+      - name: Check pages and Orbit source ZIP
         run: python3 scripts/check_site.py
-      - name: Verify Frameflux gallery assets
-        run: python3 scripts/check_gallery.py
-      - name: Verify JavaScript parses
-        run: |
-          node --check site/assets/main.js
-          node --check site/assets/gallery-v3.js
-          node --check site/templates/orbit/script.js
+      - name: Check real motion previews and prompt assets
+        run: python3 scripts/check_v5.py

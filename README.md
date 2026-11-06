@@ -1,29 +1,29 @@
-# Frameflux v0.4 — The independent design playground
+# Frameflux · Motion-first website gallery (v0.5)
 
-**Live Cloudflare site:** https://rameflux-landing-templates.apsiva69.workers.dev/
+**Original motion demos. Real video previews. Copyable AI build briefs.**
 
-A gallery-first independent creative library using an original **ivory + cobalt + acid-lime** editorial identity.
+This is a Cloudflare-friendly static website. The homepage is a focused discovery gallery—not a traditional brochure landing page. It contains eight original site experiences; each design has its own responsive working HTML/CSS demo page, a locally recorded MP4 clip and a locally captured WebP poster. A custom prompt is available from each card. Orbit is the complete free source-code product, also downloadable as a ZIP.
 
-## What's new in v0.4
-- Split-screen editorial hero with custom CSS-animated art studio preview
-- Fresh brand palette, typography, spacing and rewritten product messaging
-- Marquee dividing hero from the 12-concept gallery
-- Clearer collection introduction, upgraded filters and better gallery card treatments
-- Free Orbit section redesigned in electric indigo with real live iframe, ZIP and prompt
-- Retains all 12 prompts, search, filters, sorting and mobile responsive interactions
-- Accessibility: reduced-motion fallbacks, focus states, accessible buttons and sensible page headings
+## Real architecture
 
-**Important:** The 11 other designs are original **concept art plus detailed AI prompts**, not 11 deployed websites. The **Orbit** template is a real free HTML/CSS/JS site and source download.
+- **Original demos:** `/site/demos/<slug>/` and `/site/templates/orbit/`
+- **Previews:** `/site/previews/<slug>.mp4` (H.264 silent looping videos) and `.webp` posters
+- **Gallery data & prompts:** `/site/data/gallery-v5.json`
+- **Frontend:** semantic HTML, CSS, vanilla JS, native `<video muted loop playsinline>` and `<dialog>`
+- **Hosting:** Cloudflare Workers static assets or Cloudflare Pages, directory `site`; no backend required
 
-## Cloudflare
-Deploy as a static asset site from the `site/` directory. Cloudflare Worker static assets or Cloudflare Pages both work. GitHub repository: https://github.com/Sivanesanbalu/rameflux-landing-templates
+The public MotionSites website uses video preview cards with poster images (some videos publicly hosted on Cloudflare R2). Frameflux implements the **same general production technique** using its own website designs and self-hosted content; no MotionSites artwork, videos, prompts, trademarks or page code are copied.
 
-## Local checks
-```bash
-python3 scripts/package_orbit.py
-python3 scripts/check_site.py
-python3 scripts/check_gallery.py
-```
+## Build & validate
 
-## Roadmap
-Expand full working demos, make original videos for premium previews, then add checkout and accounts once validated.
+`python3 scripts/check_site.py` 
+
+`python3 scripts/check_v5.py`
+
+Recreate preview clips using `python3 scripts/render_previews.py` (requires local Playwright Chromium and ffmpeg). On every future update, edit the demo and re-record the preview to keep what visitors see consistent with the actual product.
+
+## Publish
+
+GitHub `main` is connected to existing Cloudflare Worker; the existing public URL remains unchanged. Project is fully static with no framework compile step. Cloudflare build output directory `site`.
+
+**Honesty:** all eight demos are actual live animated pages; only Orbit currently offers the source ZIP. Demo visuals are illustration-led concepts, not functional external products or live commercial analytics.
