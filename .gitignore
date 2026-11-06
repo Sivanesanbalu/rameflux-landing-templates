@@ -5,3 +5,10 @@ __pycache__/
 node_modules/
 .env*
 !.env.example
+
+/.next/
+/out/
+/node_modules/
+/next-env.d.ts
+*.tsbuildinfo
+/.wrangler/

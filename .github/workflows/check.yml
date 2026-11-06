@@ -1,4 +1,4 @@
-name: Validate Frameflux website
+name: Validate FrameFlux
 on:
   push:
   pull_request:
@@ -7,7 +7,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Check pages and Orbit source ZIP
-        run: python3 scripts/check_site.py
-      - name: Check real motion previews and prompt assets
-        run: python3 scripts/check_v5.py
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+      - run: npm ci
+      - run: npm run build
+      - run: python3 scripts/check_site.py
+      - run: python3 scripts/check_v5.py

@@ -1,0 +1,11 @@
+{
+  "name": "rameflux-landing-templates",
+  "compatibility_date": "2026-11-06",
+  "build": {
+    "command": "npm run build"
+  },
+  "assets": {
+    "directory": "./out",
+    "not_found_handling": "404-page"
+  }
+}

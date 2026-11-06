@@ -1,18 +1,19 @@
 # FrameFlux
 
-A static website design library. The public collection starts empty. Add each new design to the collection in site/index.html when it is ready.
+A Next.js and TypeScript design library with a white interface, category pages, featured picks, search, membership, and billing status.
 
-## Run locally
+The public library starts empty. Add each design to lib/catalog.ts when it is ready. Set featured to true for the Hot page. Motion concepts are listed as a category for still references. The public UI uses no animations or video.
 
-    python3 -m http.server 8080 --directory site
+Membership shows free access and a planned Plus tier. Billing is a public status view with inactive payments and no account or invoice integration.
 
-## Validate
+## Run and validate
 
+    npm ci
+    npm run dev
+    npm run build
     python3 scripts/check_site.py
     python3 scripts/check_v5.py
 
-The second command checks the prior motion gallery in archive/motion-gallery. Its original demos, recordings, and prompts are outside the published directory and can be reused for future entries.
-
-GitHub main deploys the site/ directory to the existing Cloudflare Worker.
+The production build exports static assets to out/. The existing Cloudflare Worker builds from GitHub main and uses wrangler.jsonc to publish the export. Archived demos are kept outside the public export.
 
 Live: https://rameflux-landing-templates.apsiva69.workers.dev/
