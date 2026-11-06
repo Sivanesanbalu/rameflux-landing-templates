@@ -1,93 +1,47 @@
-# Frameflux — animated landing page marketplace (v0.1)
+# Frameflux — premium design inspiration and prompt gallery
 
-An original, static-first template marketplace. The first drop is **Orbit**, a completely free animated AI/SaaS landing page. Designed to deploy on **Cloudflare Pages** and to version every future update in GitHub.
+**v0.3: Gallery-first redesign**. Cloudflare Workers static hosting with GitHub-triggered deployments.
 
-## Features available today
+## What's live
 
-- Responsive animated marketplace homepage (no account or server required)
-- **Real live Orbit preview** embedded in the marketplace
-- Full-size preview dialog with desktop/mobile sizing and an open-in-new-tab link
-- Free source-code ZIP that contains the exact site shown in the preview
-- Detailed build prompt displayed from `site/data/orbit-prompt.txt`
-- **Build with Lovable** button (documented prompt-prefill URL; user reviews and sends)
-- **Use in ChatGPT** button (copies prompt and opens ChatGPT for manual paste)
-- Keyboard accessible controls, focus indicators and reduced-motion support
-- No payment system, database, authentication, or analytics yet: nothing fake is advertised as real
+- Distinctive editorial grid of 12 original design concept previews (visual directions, not 12 fully coded sites).
+- Filter by category, browse Featured / Popular / Recent, filter by free/premium, and search locally.
+- Open a design dialog to read its creative brief, copy an AI prompt, or prefill the prompt in Lovable.
+- One **real** complete free landing page: [Orbit](site/templates/orbit/index.html), with its working live preview, source ZIP and detailed prompt.
+- Works without authentication, database or a build step. Gallery illustrations use original HTML and CSS compositions; selected editorial photographs are loaded from Unsplash. Refer to Unsplash's license and third-party rights guidance for photography use. Avoid using recognizable people or trademarks to imply endorsement.
+- Accessible keyboard focus, native dialog, semantic links, responsive layouts, and reduced-motion support.
 
-## Directory map
+## Layout / deploy
 
-```text
-site/
-  index.html                      Marketplace home
-  assets/styles.css               Marketplace design
-  assets/main.js                  Modal, prompt copy, AI links
-  assets/favicon.svg
-  data/orbit-prompt.txt           Reusable AI design prompt
-  templates/orbit/               The actual free template + Lottie animation
-  downloads/orbit-template.zip   Free source download (generated from template)
-scripts/check_site.py             Link, JSON and ZIP smoke checks
-.github/workflows/check.yml       GitHub Actions checks for every commit
-```
+The deploy root directory is `site/` and **does not require a build command**. On Cloudflare Workers Git-connected static assets, use `site` as the asset directory. Keep `main` as production branch.
 
-## Run locally
+To verify locally:
 
-```bash
-cd frameflux-landing-templates
-python3 -m http.server 8080 --directory site
-```
-
-Open http://localhost:8080 and test the two AI buttons and live preview. The optional Lottie effect needs external CDN access, but the CSS animation is always available.
-
-## Deploy through Cloudflare Pages + GitHub
-
-1. Create a new GitHub repository, e.g. `frameflux-landing-templates`, and push this project's files to the `main` branch.
-2. Visit [Cloudflare Dashboard → Workers & Pages](https://dash.cloudflare.com/) and choose **Create application → Pages → Import an existing Git repository**.
-3. Pick your GitHub repository and set:
-   - **Framework preset:** None (plain static files)
-   - **Build command:** leave empty (or `exit 0` if required)
-   - **Build output directory:** `site`
-   - **Production branch:** `main`
-4. Deploy. Cloudflare will issue a unique `*.pages.dev` URL.
-5. Each subsequent push to `main` triggers a Cloudflare Pages deployment when Git integration is enabled. Branches can receive preview deployments.
-
-Cloudflare static Next.js export is also supported, but this MVP deliberately avoids a framework and paid backend while there is only one free template. Introduce Next.js/Workers and PostgreSQL when paid sales or account features genuinely need it.
-
-## Keep the source ZIP up to date
-
-```bash
+```sh
 python3 scripts/package_orbit.py
 python3 scripts/check_site.py
-node --check site/assets/main.js
-node --check site/templates/orbit/script.js
+python3 -m http.server 8000 -d site
 ```
 
-`package_orbit.py` regenerates `site/downloads/orbit-template.zip` from the real template. Re-run it after every Orbit change and commit both template source and ZIP.
+Open http://localhost:8000. The hosted app uses the same persistent URL:
 
-## GitHub first push (on your Mac)
+https://rameflux-landing-templates.apsiva69.workers.dev/
 
-Create the empty repo at https://github.com/new (don't auto-add README). In this folder:
+## Important distinction
 
-```bash
-git init -b main
-git add .
-git commit -m "feat: launch Frameflux with free Orbit template"
-git remote add origin https://github.com/YOUR_USERNAME/frameflux-landing-templates.git
-git push -u origin main
-```
+Only Orbit is currently offered as a fully built, downloadable free website. The gallery cards are *concept previews* for inspiration and AI prompts; do not represent them as independent, finished demos. New downloadable templates can be added in future releases.
 
-Replace `YOUR_USERNAME` with your GitHub account. On later updates, use `git add . && git commit -m "..." && git push`.
+## Files
 
-## Scope and legal notes
+- `site/index.html` — gallery homepage
+- `site/assets/gallery-v3.css` — responsive gallery / original animated preview compositions
+- `site/assets/gallery-v3.js` — filtering, sorting, search, prompt modals and card data
+- `site/templates/orbit/` — complete free landing page template
+- `site/downloads/orbit-template.zip` — free Orbit download
+- `site/data/orbit-prompt.txt` — detailed Orbit creation prompt
+- `scripts/check_site.py` — static checks
+- `scripts/package_orbit.py` — rebuild free ZIP
 
-Frameflux and Orbit are original example brands, not related to MotionSites. The Orbit UI depicts **illustrative** activity only. Review brand-name availability before commercial launch. The Orbit template uses the MIT license; other marketplace assets are subject to the repository's own license. Avoid reselling third-party Lottie assets without appropriate permission. External fonts and the optional Lottie-web CDN require their own license/availability review.
+## Brand / rights
 
-## Roadmap
-
-- [x] Original storefront and one free template
-- [x] Responsive live preview and source ZIP
-- [x] AI prompt handoff
-- [x] Cloudflare Pages configuration instructions
-- [ ] GitHub repository creation and first remote push
-- [ ] Cloudflare-connected public deployment
-- [ ] More templates, filters, detailed product pages
-- [ ] Payment, licensing, accounts, purchases and order emails
+Frameflux is independent and not affiliated with MotionSites. The design does not reuse their logo, images, copy or template cards. Referenced photographic images are used as editorial illustrative media under their respective licenses; validate rights and any necessary permissions before monetizing specific designs.

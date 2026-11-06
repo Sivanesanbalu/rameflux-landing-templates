@@ -1,199 +1,73 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="theme-color" content="#0b0b10" />
-  <meta name="description" content="Frameflux — original motion-rich landing pages with live previews, editable source code and AI-ready building prompts. First template free." />
-  <meta property="og:title" content="Frameflux — Make your next first impression move." />
-  <meta property="og:description" content="Explore live animated websites. Download their source. Rebuild and customize with AI." />
-  <meta property="og:type" content="website" />
-  <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml" />
-  <link rel="stylesheet" href="/assets/styles.css" />
-  <link rel="stylesheet" href="/assets/motion-v2.css" />
-  <title>Frameflux — Motion-ready landing page templates</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#0e0e10">
+  <meta name="description" content="Frameflux — a curated gallery of original website design concepts, live previews, and AI-ready prompts. Start free with Orbit.">
+  <meta property="og:title" content="Frameflux — ideas worth building">
+  <meta property="og:description" content="Discover striking website design concepts, copy a prompt, or download a working landing page for free.">
+  <meta property="og:type" content="website">
+  <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
+  <link rel="stylesheet" href="/assets/gallery-v3.css">
+  <title>Frameflux — Discover a better first impression</title>
 </head>
 <body>
-  <a class="skip-link" href="#main">Skip to content</a>
-  <div class="site-shell">
-    <div class="ambient ambient-one" aria-hidden="true"></div>
-    <div class="ambient ambient-two" aria-hidden="true"></div>
-    <header class="site-header">
-      <a class="brand" href="/" aria-label="Frameflux home">
-        <span class="brand-symbol" aria-hidden="true"><span></span><span></span><span></span></span>
-        <span>frameflux<span class="brand-dot">.</span></span>
-      </a>
-      <nav class="desktop-nav" aria-label="Main navigation">
-        <a href="#motion-lab">Motion lab</a>
-        <a href="#templates">Free template</a>
-        <a href="#ai-prompt">AI prompts</a>
-      </nav>
-      <a class="header-cta" href="#motion-lab">Explore the lab <span aria-hidden="true">↗</span></a>
-    </header>
+  <a href="#gallery" class="skip-link">Skip to the gallery</a>
+  <div class="top-announcement"><span class="announcement-tag">NEW RELEASE</span><span>Introducing the new Frameflux gallery — curated concepts, useful prompts, and one full free template.</span><a href="#gallery">Explore <span aria-hidden="true">↗</span></a></div>
+  <header class="site-header">
+    <a class="brand" href="/" aria-label="Frameflux homepage"><span class="brand-glyph" aria-hidden="true"><i></i><i></i></span><span>frameflux<span class="brand-period">.</span></span></a>
+    <nav class="site-nav" aria-label="Site navigation"><a href="#gallery">Discover</a><a href="#gallery" data-jump-filter="Backgrounds">Backgrounds</a><a href="#gallery" data-jump-filter="3D">3D gallery</a><a href="#free-drop">Free template</a><a href="#how">How it works</a></nav>
+    <div class="nav-actions"><button type="button" id="searchToggle" class="icon-button search-toggle" aria-label="Search designs" aria-expanded="false" aria-controls="quickSearch"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><circle cx="10.8" cy="10.8" r="7.2"/><path d="m16 16 5 5"/></svg></button><a class="nav-cta" href="#free-drop">Get a free template <span aria-hidden="true">↗</span></a></div>
+  </header>
+  <main>
+    <section class="hero" aria-labelledby="heroTitle">
+      <div class="hero-orbit hero-orbit-left" aria-hidden="true"></div><div class="hero-orbit hero-orbit-right" aria-hidden="true"></div>
+      <p class="hero-kicker"><span class="kicker-dot"></span> THE CREATIVE WEB STARTS HERE</p>
+      <h1 id="heroTitle">THE WEB IS YOUR<br><span>CREATIVE PLAYGROUND<span class="hero-period">.</span></span></h1>
+      <p class="hero-lead">Beautiful website concepts and ready-to-use AI prompts.<br class="desktop-break"> Find your inspiration. Make it your own. Ship something unforgettable.</p>
+      <a class="hero-cta" href="#gallery">Explore the gallery <span aria-hidden="true">↗</span></a>
+      <div class="hero-meta"><span><span class="meta-dot"></span> ORIGINAL DESIGN CONCEPTS</span><span>01 FULL FREE TEMPLATE</span><span>NO SIGN-UP TO EXPLORE</span></div>
+    </section>
 
-    <main id="main">
-<section class="hero hero-v2" aria-labelledby="hero-heading">
-  <div class="hero-noise" aria-hidden="true"></div>
-  <div class="hero-canvas" aria-hidden="true">
-    <div class="hero-light hero-light-one"></div>
-    <div class="hero-light hero-light-two"></div>
-    <div class="hero-beam hero-beam-one"></div>
-    <div class="hero-beam hero-beam-two"></div>
-    <div class="hero-vortex"><span class="vortex-ring vortex-ring-one"></span><span class="vortex-ring vortex-ring-two"></span><span class="vortex-ring vortex-ring-three"></span><span class="vortex-center"></span></div>
-    <div class="hero-orb hero-orb-a"></div><div class="hero-orb hero-orb-b"></div>
-  </div>
-  <div class="hero-meta"><span><i class="meta-live"></i> AN OPEN MOTION DESIGN LIBRARY</span><span>DROP 001 / EST. 2026</span></div>
-  <div class="hero-copy">
-    <div class="eyebrow"><span class="eyebrow-star">✳</span> LESS SCROLLING PAST. MORE STOPPING TO LOOK.</div>
-    <h1 id="hero-heading">DESIGN<br><span class="hero-outline">IN</span> <em>MOTION<span class="period">.</span></em></h1>
-    <p class="hero-description">A collection of expressive, interactive web experiences. <strong>Watch the motion. Grab the prompt. Make something unmistakably yours.</strong></p>
-    <div class="hero-actions">
-      <a class="button button-primary" href="#motion-lab">Explore motion gallery <span aria-hidden="true">↗</span></a>
-      <a class="button button-outline" href="#templates"><span class="play-icon" aria-hidden="true">▶</span> Get the free template</a>
-    </div>
-  </div>
-  <div class="hero-foot"><span>DESIGNED TO MOVE. BUILT TO SHIP.</span><a href="#motion-lab">SCROLL TO EXPLORE <span class="scroll-arrow" aria-hidden="true">↓</span></a><span>01 / INFINITE DIRECTIONS</span></div>
-</section>
-
-<section class="motion-lab section" id="motion-lab" aria-labelledby="motion-heading">
-  <div class="section-topline"><span class="section-kicker">01 / THE MOTION LAB</span><span class="section-index">REAL CSS ANIMATIONS · NOT STATIC THUMBNAILS</span></div>
-  <div class="motion-intro">
-    <div><h2 id="motion-heading">Don't just see it.<br><em>Feel the movement.</em></h2><p>Explore our original live motion studies. Open any preview, copy the build prompt, and take the idea into your AI editor.</p></div>
-    <div class="motion-intro-mark" aria-hidden="true"><span>F</span><span>↗</span></div>
-  </div>
-  <div class="motion-tools"><div class="motion-filters" role="group" aria-label="Filter motion studies">
-    <button type="button" class="motion-filter is-active" data-filter="all" aria-pressed="true">All motion <span>04</span></button>
-    <button type="button" class="motion-filter" data-filter="website" aria-pressed="false">Websites</button>
-    <button type="button" class="motion-filter" data-filter="background" aria-pressed="false">Backgrounds</button>
-    <button type="button" class="motion-filter" data-filter="typography" aria-pressed="false">Typography</button>
-    <button type="button" class="motion-filter" data-filter="interactive" aria-pressed="false">Interactive</button>
-  </div><span class="motion-tools-help">HOVER / TAP TO EXPLORE ↗</span></div>
-  <div class="motion-grid" id="motionGrid">
-    <article class="motion-card motion-card-orbit" data-category="website">
-      <button class="motion-stage-trigger" type="button" data-open-orbit aria-label="Preview Orbit complete landing page">
-        <div class="motion-scene scene-orbit" aria-hidden="true"><span class="scene-corner-label">FRAMEFLUX / ORBIT 001</span><div class="orbit-stage-ring ring-outer"></div><div class="orbit-stage-ring ring-middle"></div><div class="orbit-stage-core"><span>◎</span></div><span class="orbit-stage-chip chip-one">DESIGN IN FLOW</span><span class="orbit-stage-chip chip-two">01 — ONLINE</span><span class="scene-orbit-title">WELCOME TO<br><strong>YOUR ORBIT.</strong></span></div>
-        <span class="scene-overlay-action">OPEN FULL WEBSITE <span>↗</span></span>
-      </button>
-      <div class="motion-card-bottom"><div><span class="motion-card-type">01 / FULL LANDING PAGE</span><h3>Orbit <span class="motion-card-free">FREE SOURCE</span></h3></div><button class="motion-copy" type="button" data-prompt-key="orbit" aria-label="Copy Orbit landing page AI prompt">Copy prompt ↗</button></div>
-    </article>
-    <article class="motion-card motion-card-aurora" data-category="background">
-      <button class="motion-stage-trigger" type="button" data-study-preview="aurora" aria-label="Open Afterglow animated background preview">
-        <div class="motion-scene scene-aurora" aria-hidden="true"><div class="aurora-layer aurora-layer-one"></div><div class="aurora-layer aurora-layer-two"></div><div class="aurora-layer aurora-layer-three"></div><div class="aurora-horizon"></div><span class="scene-corner-label">02 / AMBIENT BACKGROUND</span><div class="aurora-headline"><small>ENDLESS POSSIBILITIES</small><strong>AFTER<br><i>GLOW.</i></strong></div><span class="aurora-point"></span></div>
-        <span class="scene-overlay-action">EXPLORE THIS MOTION <span>↗</span></span>
-      </button>
-      <div class="motion-card-bottom"><div><span class="motion-card-type">02 / BACKGROUND STUDY</span><h3>Afterglow <span class="motion-card-study">FREE PROMPT</span></h3></div><button class="motion-copy" type="button" data-prompt-key="aurora" aria-label="Copy Afterglow animation AI prompt">Copy prompt ↗</button></div>
-    </article>
-    <article class="motion-card motion-card-type" data-category="typography">
-      <button class="motion-stage-trigger" type="button" data-study-preview="kinetic" aria-label="Open Kinetic typography animation preview">
-        <div class="motion-scene scene-kinetic" aria-hidden="true"><span class="kinetic-cross kinetic-cross-one">✳</span><span class="kinetic-cross kinetic-cross-two">✳</span><div class="kinetic-text"><span>MAKE</span><strong>NOISE.</strong><span class="kinetic-text-outline">MAKE WAVES.</span></div><span class="kinetic-caption">03 / TYPOGRAPHY IN MOTION</span></div>
-        <span class="scene-overlay-action">EXPLORE THIS MOTION <span>↗</span></span>
-      </button>
-      <div class="motion-card-bottom"><div><span class="motion-card-type">03 / TYPOGRAPHY STUDY</span><h3>Make Noise <span class="motion-card-study">FREE PROMPT</span></h3></div><button class="motion-copy" type="button" data-prompt-key="kinetic" aria-label="Copy Make Noise typography AI prompt">Copy prompt ↗</button></div>
-    </article>
-    <article class="motion-card motion-card-signal" data-category="interactive">
-      <button class="motion-stage-trigger" type="button" data-study-preview="signal" aria-label="Open Signal interactive radar motion preview">
-        <div class="motion-scene scene-signal" aria-hidden="true"><div class="signal-mesh"></div><div class="signal-radar"><div class="signal-sweep"></div><span class="signal-radar-dot"></span></div><span class="signal-corner">SIGNAL / CONNECTED</span><strong class="signal-headline">FEEL THE<br>FREQUENCY.</strong><span class="signal-side">004 · SYSTEM ONLINE</span></div>
-        <span class="scene-overlay-action">EXPLORE THIS MOTION <span>↗</span></span>
-      </button>
-      <div class="motion-card-bottom"><div><span class="motion-card-type">04 / INTERACTIVE STUDY</span><h3>Signal <span class="motion-card-study">FREE PROMPT</span></h3></div><button class="motion-copy" type="button" data-prompt-key="signal" aria-label="Copy Signal interactive animation AI prompt">Copy prompt ↗</button></div>
-    </article>
-  </div>
-  <div class="gallery-footnote"><span>✳</span> <p><strong>One complete free template. Three original motion studies.</strong> Orbit includes full downloadable source; the motion studies include working previews and free AI prompts.</p><a href="#templates">SEE THE FREE DROP ↗</a></div>
-</section>
-
-      <div class="signal-strip" aria-label="Template benefits">
-        <span><span class="strip-dot"></span> BUILT FOR THE REAL WEB</span>
-        <span class="strip-divider" aria-hidden="true"></span>
-        <span>LIVE DEMOS, NOT MOCKUPS</span>
-        <span class="strip-divider" aria-hidden="true"></span>
-        <span>OWN YOUR SOURCE CODE</span>
-        <span class="strip-divider" aria-hidden="true"></span>
-        <span>AI-READY PROMPTS</span>
+    <section class="discovery" id="gallery" aria-labelledby="galleryHeading">
+      <h2 class="visually-hidden" id="galleryHeading">Explore the design gallery</h2>
+      <div class="filters-shell">
+        <div class="sorting-tabs" role="group" aria-label="Sort designs"><button type="button" class="sort-chip is-active" data-sort="featured" aria-pressed="true">Featured</button><button type="button" class="sort-chip" data-sort="popular" aria-pressed="false">Popular</button><button type="button" class="sort-chip" data-sort="recent" aria-pressed="false">Recent</button></div>
+        <div class="category-scroll" id="categories" role="group" aria-label="Filter design categories">
+          <button type="button" class="category-chip is-active" data-category="All" aria-pressed="true">All</button>
+          <button type="button" class="category-chip" data-category="Apps" aria-pressed="false">Apps</button>
+          <button type="button" class="category-chip" data-category="Sections" aria-pressed="false">Sections</button>
+          <button type="button" class="category-chip" data-category="Hero" aria-pressed="false">Hero</button>
+          <button type="button" class="category-chip" data-category="Landing Page" aria-pressed="false">Landing Page</button>
+          <button type="button" class="category-chip" data-category="SaaS" aria-pressed="false">SaaS</button>
+          <button type="button" class="category-chip" data-category="3D" aria-pressed="false">3D</button>
+          <button type="button" class="category-chip" data-category="Portfolio" aria-pressed="false">Portfolio</button>
+          <button type="button" class="category-chip" data-category="Creative" aria-pressed="false">Creative</button>
+          <button type="button" class="category-chip" data-category="Agency" aria-pressed="false">Agency</button>
+          <button type="button" class="category-chip" data-category="AI" aria-pressed="false">AI</button>
+          <button type="button" class="category-chip" data-category="Ecommerce" aria-pressed="false">Ecommerce</button>
+          <button type="button" class="category-chip" data-category="Backgrounds" aria-pressed="false">Backgrounds</button>
+        </div>
+        <div class="price-control"><label for="priceFilter" class="visually-hidden">Filter by pricing</label><select id="priceFilter"><option value="all">All prices</option><option value="free">Full free template</option><option value="premium">Premium (soon)</option></select></div>
       </div>
+      <div class="quick-search" id="quickSearch" hidden><label for="searchInput">Search the collection</label><input id="searchInput" type="search" placeholder="Search automotive, SaaS, portfolio…" autocomplete="off"><button type="button" id="clearSearch" aria-label="Clear search">Clear</button></div>
+      <div class="gallery-status"><span><span class="live-indicator"></span> <span id="resultsCount">12 designs</span> in the collection</span><span>EXPLORE / GET INSPIRED / BUILD</span></div>
+      <div id="designGrid" class="design-grid" aria-live="polite"></div>
+      <div id="emptyState" class="empty-state" hidden><h3>No designs found — yet.</h3><p>Try another category or clear the search to see everything.</p><button type="button" id="resetFilters">See all designs ↗</button></div>
+      <p class="gallery-note"><span class="note-star">✳</span> These are original design concepts with AI prompts, not downloadable websites. <strong>Orbit is our fully built and free source-code release.</strong> New live templates will be added over time.</p>
+    </section>
 
-      <section class="section templates-section" id="templates" aria-labelledby="templates-heading">
-        <div class="section-topline"><span class="section-kicker">02 / THE FREE DROP</span><span class="section-index">CURATED, NOT MASS PRODUCED</span></div>
-        <div class="section-heading-row">
-          <div>
-            <h2 id="templates-heading">One good start.<br/><span class="heading-muted">A thousand directions.</span></h2>
-            <p class="section-intro">Our first release is completely free. Open it, explore the motion, download every line and make it yours.</p>
-          </div>
-          <div class="count-bubble"><strong>01</strong><span>LIVE TEMPLATE</span></div>
-        </div>
+    <section id="free-drop" class="free-drop" aria-labelledby="freeHeading">
+      <div class="free-drop-copy"><p class="section-label">OUR FIRST FULL TEMPLATE · FREE FOREVER</p><h2 id="freeHeading">Meet <em>Orbit.</em><br>A real site. Yours to keep.</h2><p>Something you can actually use today. Explore the full animated landing page, take the source code, and make it yours with an editable AI prompt.</p><div class="free-actions"><a class="button-cream" href="/templates/orbit/" target="_blank" rel="noopener noreferrer">Open live website ↗</a><a class="button-transparent" href="/downloads/orbit-template.zip" download>Download code ↓</a></div><a class="free-prompt-link" href="#gallery" id="freePromptLink">Explore the Orbit prompt ↗</a></div>
+      <div class="free-drop-visual"><div class="free-visual-head"><span>● ● ●</span><span>REAL RUNNING TEMPLATE</span></div><iframe src="/templates/orbit/" loading="lazy" title="Orbit free website preview" tabindex="-1"></iframe><a href="/templates/orbit/" target="_blank" rel="noopener noreferrer">VIEW ORBIT LIVE ↗</a></div>
+    </section>
+    <section class="how-section" id="how"><span class="section-label">THINK IT. MAKE IT. SHIP IT.</span><h2>Good ideas deserve<br><em>to get built.</em></h2><div class="how-steps"><div><span>01 / DISCOVER</span><h3>See what moves you.</h3><p>Explore distinct design directions and choose what works for your idea.</p></div><div><span>02 / PROMPT</span><h3>Take the creative brief.</h3><p>Copy the project prompt or launch it with your preferred AI coding tool.</p></div><div><span>03 / LAUNCH</span><h3>Make it original.</h3><p>Customize the design, build working functionality and deploy it anywhere.</p></div></div></section>
+  </main>
+  <footer class="footer"><a class="brand" href="/"> <span class="brand-glyph" aria-hidden="true"><i></i><i></i></span>frameflux<span class="brand-period">.</span></a><p>Independent ideas for the expressive web.</p><a href="https://github.com/Sivanesanbalu/rameflux-landing-templates" target="_blank" rel="noopener noreferrer">SOURCE ON GITHUB ↗</a><span>© <span id="year">2026</span> FRAMEFLUX</span></footer>
 
-        <article class="template-card" aria-labelledby="orbit-title">
-          <div class="template-visual">
-            <div class="frame-topbar">
-              <div class="frame-dots" aria-hidden="true"><i></i><i></i><i></i></div>
-              <span>LIVE / INTERACTIVE PREVIEW</span>
-              <span class="frame-live"><i></i> ONLINE</span>
-            </div>
-            <div class="template-frame-wrap">
-              <iframe src="/templates/orbit/index.html" title="Orbit landing page live preview" loading="lazy" tabindex="-1"></iframe>
-              <button class="preview-cover" type="button" id="openPreviewCard" aria-label="Open Orbit template full-size preview"><span class="preview-cover-label">OPEN LIVE PREVIEW ↗</span></button>
-            </div>
-            <div class="frame-bottom"><span>100% REAL HTML · CSS · JAVASCRIPT</span><span>RESPONSIVE <span aria-hidden="true">↗</span></span></div>
-          </div>
-          <div class="template-info">
-            <div class="template-info-top"><span class="template-number">DROP NO. 001</span><span class="free-badge">● FREE FOREVER</span></div>
-            <div class="template-title-wrap"><div class="template-symbol" aria-hidden="true">◎</div><h3 id="orbit-title">Orbit<span>.</span></h3></div>
-            <p class="template-tagline">A launchpad for big ideas.</p>
-            <p class="template-description">A futuristic AI/SaaS landing page with luminous orbits, subtle motion, a product dashboard and mobile-first layouts. Built to feel alive.</p>
-            <div class="template-tags" aria-label="Template features"><span>AI / SAAS</span><span>CSS MOTION</span><span>RESPONSIVE</span><span>NO DEPENDENCIES*</span></div>
-            <div class="template-action-group">
-              <button type="button" class="button button-primary button-full" id="openPreview">Launch live preview <span aria-hidden="true">↗</span></button>
-              <a class="button button-download button-full" href="/downloads/orbit-template.zip" download>Download source — FREE <span aria-hidden="true">↓</span></a>
-              <a class="template-prompt-link" href="#ai-prompt">Want to remake this with AI? Get the exact build prompt <span aria-hidden="true">↗</span></a>
-            </div>
-            <p class="small-disclaimer">*Core page is dependency-free. Optional Lottie playback uses a CDN and has a CSS fallback.</p>
-          </div>
-        </article>
-      </section>
-
-      <section class="section workflow-section" id="how-it-works" aria-labelledby="workflow-heading">
-        <div class="section-topline"><span class="section-kicker">03 / THE PROCESS</span><span class="section-index">THREE STEPS, ZERO FRICTION</span></div>
-        <h2 id="workflow-heading">From “that's cool”<br/>to <span class="heading-highlight">“that's live.”</span></h2>
-        <div class="steps-grid">
-          <div class="step-card"><span class="step-number">01</span><div class="step-art step-art-one" aria-hidden="true"><span class="mini-window"><i></i><i></i><i></i></span><span class="mini-cursor">↗</span></div><h3>Find your spark.</h3><p>Browse the template and open the real, responsive website. No staged screenshots.</p></div>
-          <div class="step-card"><span class="step-number">02</span><div class="step-art step-art-two" aria-hidden="true"><span class="code-line"></span><span class="code-line"></span><span class="code-line"></span><span class="code-angle">{ }</span></div><h3>Take the code.</h3><p>Download the source or use the AI-ready prompt to make an entirely new version.</p></div>
-          <div class="step-card"><span class="step-number">03</span><div class="step-art step-art-three" aria-hidden="true"><span class="launch-ring"></span><span class="launch-arrow">↗</span></div><h3>Make it yours.</h3><p>Replace the content, tune the animations and publish on Cloudflare Pages.</p></div>
-        </div>
-      </section>
-
-      <section class="section prompt-section" id="ai-prompt" aria-labelledby="prompt-heading">
-        <div class="section-topline"><span class="section-kicker">04 / THE PROMPT</span><span class="section-index">COPY IT. CHANGE IT. BUILD IT.</span></div>
-        <div class="prompt-layout">
-          <div class="prompt-copy">
-            <div class="prompt-asterisk" aria-hidden="true">✳</div>
-            <h2 id="prompt-heading">One click.<br/><span class="heading-highlight">A new world</span><br/>to build.</h2>
-            <p>Don't know where to start? Choose any motion study above to load its full creative brief. Paste it into your favorite AI builder and make your own original version.</p>
-            <div class="prompt-benefit"><span>✓</span> Full design direction</div>
-            <div class="prompt-benefit"><span>✓</span> Responsive & motion requirements</div>
-            <div class="prompt-benefit"><span>✓</span> Ready for AI coding tools</div>
-          </div>
-          <div class="prompt-console">
-            <div class="console-heading"><span><i></i> <span id="promptLabel">ORBIT / FULL LANDING PAGE</span></span><span class="console-file">MOTION_PROMPT.TXT</span></div>
-            <div class="prompt-scroll"><pre id="promptText">Loading the Orbit design prompt…</pre></div>
-            <div class="prompt-toolbar"><span class="prompt-toolbar-note">YOUR PROMPT. YOUR PROJECT.</span><button id="copyPrompt" type="button" class="button button-small">Copy full prompt <span aria-hidden="true">⧉</span></button></div>
-            <div class="ai-actions"><a id="lovableLink" class="ai-button ai-button-lovable" target="_blank" rel="noopener noreferrer" href="https://lovable.dev/">✳ <span>Build with Lovable</span> <span aria-hidden="true">↗</span></a><button id="chatgptButton" type="button" class="ai-button ai-button-chatgpt"><span class="ai-star" aria-hidden="true">✺</span> <span>Use in ChatGPT</span> <span aria-hidden="true">↗</span></button></div>
-            <p class="ai-note">Lovable opens with the prompt prefilled for your review. ChatGPT opens after copying the prompt; paste it in a new chat.</p>
-          </div>
-        </div>
-      </section>
-
-      <section class="closing-section" aria-labelledby="closing-heading"><div class="closing-grid" aria-hidden="true"></div><div class="closing-icon" aria-hidden="true">✳</div><p class="closing-eyebrow">THE FIRST DROP IS YOURS</p><h2 id="closing-heading">Ready to make<br/>some <em>motion?</em></h2><a class="button button-light" href="/downloads/orbit-template.zip" download>Get Orbit for free <span aria-hidden="true">↓</span></a><p>No account. No payment. Just a better place to start.</p></section>
-    </main>
-    <footer class="site-footer"><a class="brand brand-footer" href="/"><span class="brand-symbol" aria-hidden="true"><span></span><span></span><span></span></span><span>frameflux<span class="brand-dot">.</span></span></a><span>ORIGINAL TEMPLATES, UNLIMITED IDEAS.</span><a href="https://github.com/Sivanesanbalu" target="_blank" rel="noopener noreferrer">MADE IN THE OPEN ↗</a><span>© <span id="year">2026</span> FRAMEFLUX</span></footer>
-  </div>
-
-  <dialog id="previewDialog" aria-labelledby="previewTitle"><div class="dialog-toolbar"><div class="dialog-title"><span class="dialog-live"></span><strong id="previewTitle">Orbit — live demo</strong><span>/ TEMPLATE 001</span></div><div class="dialog-actions"><div class="viewport-controls" role="group" aria-label="Preview size"><button id="desktopPreview" type="button" aria-pressed="true" title="Desktop preview">▣ <span>Desktop</span></button><button id="mobilePreview" type="button" aria-pressed="false" title="Mobile preview">▯ <span>Mobile</span></button></div><a href="/templates/orbit/index.html" target="_blank" rel="noopener noreferrer" title="Open preview in a new tab">↗</a><button id="closePreview" type="button" aria-label="Close preview">✕</button></div></div><div class="dialog-content"><iframe id="dialogFrame" src="/templates/orbit/index.html" title="Orbit full interactive landing page"></iframe></div></dialog>
-  <dialog id="studyDialog" class="study-dialog" aria-labelledby="studyDialogTitle">
-    <div class="study-dialog-header"><span class="study-live-dot" aria-hidden="true"></span><strong id="studyDialogTitle">Motion study</strong><span class="study-dialog-label">LIVE / ANIMATED</span><button id="closeStudyDialog" type="button" aria-label="Close motion preview">✕</button></div>
-    <div id="studyDialogStage" class="study-dialog-stage"></div>
-    <div class="study-dialog-footer"><p id="studyDialogSummary">Original animation, ready to inspire your next build.</p><div class="study-dialog-buttons"><button id="studyCopyPrompt" class="button button-outline" type="button">Copy scene prompt ⧉</button><button id="studyUsePrompt" class="button button-primary" type="button">Use with AI ↗</button></div></div>
-  </dialog>
+  <dialog class="detail-dialog" id="detailDialog" aria-labelledby="detailTitle"><div class="dialog-header"><span>FRAMEFLUX / DESIGN DETAILS</span><button id="closeDetail" type="button" aria-label="Close design details">✕</button></div><div class="detail-layout"><div class="detail-preview" id="detailPreview"></div><div class="detail-aside"><span id="detailCategory" class="detail-category"></span><h2 id="detailTitle"></h2><p id="detailDescription"></p><div id="detailType" class="detail-type"></div><div class="dialog-prompt-heading"><span>READY-TO-BUILD PROMPT</span><span>TXT ↗</span></div><pre id="detailPrompt" tabindex="0"></pre><button id="detailCopy" class="detail-copy" type="button">Copy AI prompt <span>⧉</span></button><a id="detailLovable" class="detail-lovable" href="https://lovable.dev/" target="_blank" rel="noopener noreferrer">Continue in Lovable ↗</a><a id="detailLive" class="detail-live" href="/templates/orbit/" target="_blank" rel="noopener noreferrer" hidden>Open the full live website ↗</a><a id="detailDownload" class="detail-download" href="/downloads/orbit-template.zip" download hidden>Download free source ↓</a><small>AI prompts open in Lovable for review; they do not submit automatically.</small></div></div></dialog>
   <div id="toast" class="toast" role="status" aria-live="polite"></div>
-  <script src="/assets/main.js" defer></script>
-  <script src="/assets/motion-v2.js" defer></script>
+  <script defer src="/assets/gallery-v3.js"></script>
 </body>
 </html>
