@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 from pathlib import Path
 import json,subprocess
-root=Path(__file__).resolve().parents[1];site=root/'site'
+root=Path(__file__).resolve().parents[1];site=root/'archive'/'motion-gallery'/'site'
 designs=json.loads((site/'data/gallery-v5.json').read_text(encoding='utf-8'))
 assert len(designs)==8 and len({d['id'] for d in designs})==8
 assert all(len(d['prompt'])>190 for d in designs)

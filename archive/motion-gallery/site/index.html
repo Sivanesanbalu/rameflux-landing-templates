@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#141414">
+  <meta name="description" content="Browse original motion website previews and copy the prompts behind them.">
+  <meta property="og:title" content="FrameFlux — Motion design library">
+  <title>FrameFlux — Motion design library</title>
+  <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/assets/frameflux-v5.css">
+  <script src="/assets/frameflux-v5.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#gallery">Skip to gallery</a>
+  <div class="announcement">
+    <span aria-hidden="true">✦</span> The FrameFlux collection is open
+    <a href="#gallery">Explore 8 motion designs <span aria-hidden="true">↗</span></a>
+  </div>
+  <header class="site-header">
+    <a class="brand" href="/" aria-label="FrameFlux home"><img src="/assets/favicon.svg" width="33" height="33" alt="">frameflux</a>
+    <nav aria-label="Main navigation">
+      <a href="#gallery" data-nav-filter="All">Discover</a>
+      <a href="#gallery" data-nav-filter="Apps">Apps</a>
+      <a href="#gallery" data-nav-filter="Hero">Hero sections</a>
+      <a href="#gallery" data-nav-filter="3D">3D &amp; motion</a>
+    </nav>
+    <div class="header-actions">
+      <button id="searchToggle" class="icon-button" type="button" aria-label="Search designs">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m15.5 15.5 5 5"/></svg>
+      </button>
+      <a href="/templates/orbit/" class="pill light">Free template</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="intro" aria-labelledby="headline">
+      <p class="intro-badge">The motion collection</p>
+      <h1 id="headline">Give your website<br><em>more motion.</em></h1>
+      <p>Explore animated websites and copy the build prompt behind each design.</p>
+      <a href="#gallery" class="pill hero-action">Explore the gallery <span aria-hidden="true">→</span></a>
+    </section>
+
+    <section class="gallery" id="gallery" aria-label="Motion design gallery">
+      <div class="toolbar">
+        <div class="segmented sorts" aria-label="Sort designs" role="group">
+          <button type="button" data-sort="featured" aria-pressed="true">Featured</button>
+          <button type="button" data-sort="name" aria-pressed="false">A–Z</button>
+        </div>
+        <div class="segmented categories" id="categories" aria-label="Filter by category" role="group">
+          <button type="button" data-category="All" aria-pressed="true">All</button>
+          <button type="button" data-category="Apps" aria-pressed="false">Apps</button>
+          <button type="button" data-category="Hero" aria-pressed="false">Hero</button>
+          <button type="button" data-category="Landing Page" aria-pressed="false">Landing pages</button>
+          <button type="button" data-category="SaaS" aria-pressed="false">SaaS</button>
+          <button type="button" data-category="3D" aria-pressed="false">3D</button>
+          <button type="button" data-category="Portfolio" aria-pressed="false">Portfolio</button>
+          <button type="button" data-category="Creative" aria-pressed="false">Creative</button>
+          <button type="button" data-category="AI" aria-pressed="false">AI</button>
+          <button type="button" data-category="Ecommerce" aria-pressed="false">Ecommerce</button>
+        </div>
+        <div class="toolbar-actions">
+          <button id="motionToggle" class="pill muted" type="button" aria-pressed="false" aria-label="Pause motion previews" title="Pause motion previews">Ⅱ <span>Pause</span></button>
+          <select class="pill muted" id="accessFilter" aria-label="Filter by access">
+            <option value="all">All access</option>
+            <option value="free">Free source</option>
+          </select>
+        </div>
+      </div>
+      <div class="search-row" id="searchRow" hidden>
+        <label for="searchInput">Search designs</label>
+        <input id="searchInput" type="search" placeholder="Search a name, style, or category">
+      </div>
+      <p id="galleryCount" class="sr-only" role="status"></p>
+      <div id="designGrid" class="design-grid"><p class="gallery-message">Loading designs…</p></div>
+      <noscript><p class="gallery-message">Enable JavaScript to browse the motion previews.</p></noscript>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <a class="brand" href="/"><img src="/assets/favicon.svg" width="27" height="27" alt="">frameflux</a>
+    <p>Original motion demos and prompts.</p>
+    <a href="https://github.com/Sivanesanbalu/rameflux-landing-templates">GitHub <span aria-hidden="true">↗</span></a>
+  </footer>
+
+  <dialog id="detailDialog" aria-labelledby="detailTitle">
+    <div class="detail-content">
+      <header class="detail-header">
+        <div><p id="detailCategory"></p><h2 id="detailTitle">Design preview</h2></div>
+        <button id="detailClose" class="icon-button" type="button" aria-label="Close preview">×</button>
+      </header>
+      <div class="detail-layout">
+        <div class="detail-main">
+          <div class="detail-controls">
+            <div class="segmented" role="group" aria-label="Preview width">
+              <button id="desktopPreview" type="button" aria-pressed="true">Desktop</button>
+              <button id="mobilePreview" type="button" aria-pressed="false">Phone</button>
+            </div>
+            <a class="pill muted" id="openDemo" target="_blank" rel="noopener">Open live site ↗</a>
+          </div>
+          <div class="detail-frame"><iframe title="Interactive website demo" id="demoFrame"></iframe></div>
+        </div>
+        <aside class="detail-info">
+          <p id="detailDescription"></p>
+          <h3>Build prompt</h3>
+          <pre id="detailPrompt" tabindex="0"></pre>
+          <button class="pill light" type="button" id="copyPrompt">Copy prompt <span aria-hidden="true">⧉</span></button>
+          <a class="pill muted" href="https://lovable.dev/" id="lovablePrompt" target="_blank" rel="noopener">Build with Lovable ↗</a>
+          <a class="pill muted" href="https://chatgpt.com/" id="chatgptPrompt" target="_blank" rel="noopener">Open ChatGPT ↗</a>
+          <a class="pill muted" id="downloadOrbit" hidden download href="/downloads/orbit-template.zip">Download source ↓</a>
+          <p id="detailStatus" role="status"></p>
+        </aside>
+      </div>
+    </div>
+  </dialog>
+
+  <template id="cardTemplate">
+    <article class="design-card">
+      <button class="design-media" type="button">
+        <img alt="" loading="lazy" decoding="async">
+        <video muted loop playsinline preload="none" aria-hidden="true"></video>
+        <span class="media-action">Live preview ↗</span>
+      </button>
+      <div class="card-caption">
+        <div><h3></h3><p></p></div>
+        <button class="pill card-copy" type="button">Copy prompt <span aria-hidden="true">⧉</span></button>
+      </div>
+    </article>
+  </template>
+  <p class="toast" id="toast" role="status"></p>
+</body>
+</html>
