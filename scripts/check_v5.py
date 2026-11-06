@@ -5,9 +5,9 @@ root=Path(__file__).resolve().parents[1];site=root/'site'
 designs=json.loads((site/'data/gallery-v5.json').read_text(encoding='utf-8'))
 assert len(designs)==8 and len({d['id'] for d in designs})==8
 assert all(len(d['prompt'])>190 for d in designs)
-index=(site/'video-gallery.html').read_text()
+index=(site/'index.html').read_text()
 assert '/downloads/orbit-template.zip' in index
-assert 'real' in index.lower() and 'video' in (site/'assets/frameflux-v5.js').read_text()
+assert 'cardTemplate' in index and 'video' in (site/'assets/frameflux-v5.js').read_text()
 for d in designs:
  assert (site/'previews'/f"{d['id']}.webp").stat().st_size>4000
  assert (site/'previews'/f"{d['id']}.mp4").stat().st_size>6000

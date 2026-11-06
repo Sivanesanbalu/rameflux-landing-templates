@@ -1,30 +1,17 @@
-# FrameFlux Studio
+# FrameFlux
 
-A motion template library with a live website editor and standalone HTML export.
+A motion-first gallery of eight original web demos with recorded MP4 previews and copyable AI build prompts.
 
-- Studio includes three editable starters: Rift, Relay, and Serein.
-- Edit copy, brand colors, animation style, and speed. Preview the result at desktop and phone widths.
-- Drafts stay in the current browser. Remix links carry the selected template and settings in the URL fragment.
-- Export produces a self-contained HTML file with inline CSS and SVG. Copy AI prompt produces a brief based on the current settings.
-- The video gallery contains eight original demos with recorded, muted MP4 previews, posters, and prompts. Orbit includes a free source ZIP.
+Browse by category, search, or filter for the free Orbit template. Each card opens a live demo with desktop and phone widths. Orbit includes its full source ZIP.
 
-## Run locally
-
-Serve the static site with Python 3.
+## Run and validate
 
     python3 -m http.server 8080 --directory site
-
-## Verify
-
     python3 scripts/check_site.py
     python3 scripts/check_v5.py
-    node --check site/studio/app.mjs
-    node --check site/studio/templates.mjs
 
-The video preview recording workflow is in scripts/render_previews.py and uses Playwright Chromium and ffmpeg.
+Previews are recorded from the original live demos. To regenerate them, run scripts/render_previews.py with Playwright Chromium and ffmpeg installed.
 
-## Deploy
-
-The GitHub main branch builds on the existing Cloudflare Worker. The deployment serves static files from site/. No build step, database, or API keys are required.
+The GitHub main branch deploys static files from site/ to the existing Cloudflare Worker.
 
 Live: https://rameflux-landing-templates.apsiva69.workers.dev/

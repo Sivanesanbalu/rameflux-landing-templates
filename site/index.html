@@ -3,79 +3,130 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#14141c">
-  <meta name="description" content="FrameFlux is a motion design studio for the web. Explore live website starters, remix the motion, and export a standalone site.">
-  <title>FrameFlux — Motion for the web</title>
-  <link rel="icon" href="./studio/mark.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="./studio/studio.css">
-  <script type="module" src="./studio/app.mjs"></script>
+  <meta name="theme-color" content="#141414">
+  <meta name="description" content="Browse original motion website previews and copy the prompts behind them.">
+  <meta property="og:title" content="FrameFlux — Motion design library">
+  <title>FrameFlux — Motion design library</title>
+  <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/assets/frameflux-v5.css">
+  <script src="/assets/frameflux-v5.js" defer></script>
 </head>
 <body>
-  <a class="skip" href="#collection">Skip to templates</a>
-  <header class="top">
-    <div class="shell nav">
-      <a class="brand" href="./" aria-label="FrameFlux home"><img src="./studio/mark.svg" width="29" height="29" alt="">FrameFlux<span>✳</span></a>
-      <nav aria-label="Main navigation"><a href="#collection">Explore</a><a href="#screenings">Video gallery</a><a href="#workflow">How it works</a></nav>
-      <button class="button outline small" id="open-studio">Open Studio <span aria-hidden="true">↗</span></button>
+  <a class="skip-link" href="#gallery">Skip to gallery</a>
+  <div class="announcement">
+    <span aria-hidden="true">✦</span> The FrameFlux collection is open
+    <a href="#gallery">Explore 8 motion designs <span aria-hidden="true">↗</span></a>
+  </div>
+  <header class="site-header">
+    <a class="brand" href="/" aria-label="FrameFlux home"><img src="/assets/favicon.svg" width="33" height="33" alt="">frameflux</a>
+    <nav aria-label="Main navigation">
+      <a href="#gallery" data-nav-filter="All">Discover</a>
+      <a href="#gallery" data-nav-filter="Apps">Apps</a>
+      <a href="#gallery" data-nav-filter="Hero">Hero sections</a>
+      <a href="#gallery" data-nav-filter="3D">3D &amp; motion</a>
+    </nav>
+    <div class="header-actions">
+      <button id="searchToggle" class="icon-button" type="button" aria-label="Search designs">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m15.5 15.5 5 5"/></svg>
+      </button>
+      <a href="/templates/orbit/" class="pill light">Free template</a>
     </div>
   </header>
-  <main class="shell">
-    <section class="hero" aria-labelledby="title">
-      <div class="hero-copy">
-        <div class="eyebrow"><i></i> THE WEB MOTION STUDIO</div>
-        <h1 id="title">Motion worth<br><em>making yours.</em></h1>
-        <p>Start with a website that already moves. Make it yours in the live editor, then take the code with you.</p>
-        <div class="actions"><a class="button primary" href="#collection">Explore templates <span aria-hidden="true">↓</span></a><button class="button text" id="hero-remix">Remix Rift <span aria-hidden="true">↗</span></button></div>
-      </div>
-      <div class="reel" aria-label="Featured animation from the Rift template">
-        <div class="reel-top"><span><i></i> LIVE MOTION PREVIEW</span><span>01 / 03</span></div>
-        <div class="reel-art" id="hero-art"></div>
-        <div class="reel-bottom"><span><b>Rift</b> <i></i> Featured template</span><button id="hero-play" aria-label="Pause featured animation" type="button">Ⅱ</button></div>
-      </div>
+
+  <main>
+    <section class="intro" aria-labelledby="headline">
+      <p class="intro-badge">The motion collection</p>
+      <h1 id="headline">Give your website<br><em>more motion.</em></h1>
+      <p>Explore animated websites and copy the build prompt behind each design.</p>
+      <a href="#gallery" class="pill hero-action">Explore the gallery <span aria-hidden="true">→</span></a>
     </section>
-    <section class="collection" id="collection" aria-labelledby="collection-title">
-      <div class="section-top"><div><div class="eyebrow"><i></i> THE STARTER COLLECTION</div><h2 id="collection-title">Find your first frame.</h2></div><p>Every starter is a working website. See it in motion, then open it in Studio.</p></div>
-      <div class="filters"><div id="categories" aria-label="Template categories"></div><label class="search"><span aria-hidden="true">⌕</span><input id="search" type="search" placeholder="Find a template" aria-label="Find a template"></label></div>
-      <div class="cards" id="cards"></div>
-      <noscript><p>Enable JavaScript to browse and edit the live templates.</p></noscript>
-    </section>
-    <section class="collection screenings" id="screenings" aria-labelledby="screenings-title">
-      <div class="section-top"><div><div class="eyebrow"><i></i> RECORDED FROM LIVE WEBSITES</div><h2 id="screenings-title">The screening room.</h2></div><a class="button outline small" href="./video-gallery.html">Browse all 8 videos ↗</a></div>
-      <div class="cards">
-        <article class="card"><div class="screening-video"><video loop muted playsinline preload="none" poster="./previews/kinetic.webp" data-video="./previews/kinetic.mp4" aria-label="Kinetic Studio animation preview"></video><button class="preview-tag" type="button" aria-label="Play Kinetic Studio preview">Play</button></div><div class="card-meta"><div><h3>Kinetic Studio</h3><p>Creative studio</p></div><a class="button outline small" href="./demos/kinetic/">Live demo ↗</a></div></article>
-        <article class="card"><div class="screening-video"><video loop muted playsinline preload="none" poster="./previews/signal.webp" data-video="./previews/signal.mp4" aria-label="Signal Theory animation preview"></video><button class="preview-tag" type="button" aria-label="Play Signal Theory preview">Play</button></div><div class="card-meta"><div><h3>Signal Theory</h3><p>AI product</p></div><a class="button outline small" href="./demos/signal/">Live demo ↗</a></div></article>
-        <article class="card"><div class="screening-video"><video loop muted playsinline preload="none" poster="./previews/orbit.webp" data-video="./previews/orbit.mp4" aria-label="Orbit animation preview"></video><button class="preview-tag" type="button" aria-label="Play Orbit preview">Play</button></div><div class="card-meta"><div><h3>Orbit</h3><p>SaaS · Free source</p></div><a class="button outline small" href="./templates/orbit/">Live demo ↗</a></div></article>
-      </div>
-    </section>
-    <section class="workflow" id="workflow" aria-labelledby="workflow-title">
-      <div class="eyebrow"><i></i> THE WORKFLOW</div>
-      <h2 id="workflow-title">From first frame to your site.</h2>
-      <div class="steps"><article><span>01</span><h3>Explore</h3><p>Open a running site and see how its motion feels on desktop and phone.</p></article><article><span>02</span><h3>Remix</h3><p>Change the brand, colors, and pacing. See your edits as you make them.</p></article><article><span>03</span><h3>Export</h3><p>Take a standalone HTML file, copy a project prompt, or share your remix by link.</p></article></div>
-    </section>
-  </main>
-  <footer class="shell footer"><a class="brand" href="./"><img src="./studio/mark.svg" width="23" height="23" alt="">FrameFlux<span>✳</span></a><span>Original motion templates · Studio release 01</span><a href="./video-gallery.html">Video gallery ↗</a></footer>
-  <dialog id="studio" aria-labelledby="studio-title">
-    <div class="editor">
-      <header class="editor-head"><div><div class="eyebrow"><i></i> FRAMEFLUX STUDIO</div><h2 id="studio-title">Remix a template</h2></div><button class="square" id="close" aria-label="Close Studio">×</button></header>
-      <div class="workbench">
-        <aside class="controls">
-          <label for="template">Template</label><select id="template"></select>
-          <label for="brand">Brand name</label><input id="brand" maxlength="32">
-          <label for="headline">Headline</label><input id="headline" maxlength="80">
-          <label for="description">Description</label><textarea id="description" rows="3" maxlength="160"></textarea>
-          <label for="cta">Button text</label><input id="cta" maxlength="32">
-          <div class="colors"><label>Background<input type="color" id="background"></label><label>Accent<input type="color" id="accent"></label></div>
-          <div class="control-head"><label for="speed">Motion speed</label><output id="speed-value" for="speed">1×</output></div><input id="speed" type="range" min=".5" max="2" step=".1" value="1">
-          <div class="control-head"><label for="motion">Motion style</label><button id="reset" type="button" class="button text tiny">Reset</button></div><select id="motion"><option value="ambient">Ambient loop</option><option value="enter">Entrance reveal</option><option value="still">Still</option></select>
-          <div class="draft" id="draft">Edits save in this browser.</div>
-        </aside>
-        <div class="stage">
-          <div class="stage-bar"><div class="viewport" aria-label="Preview size"><button type="button" data-size="desktop" aria-pressed="true">Desktop</button><button type="button" data-size="phone" aria-pressed="false">Phone</button></div><button class="button text tiny" id="replay" type="button">↻ Replay</button></div>
-          <div class="frame-wrap"><iframe id="preview" title="Interactive website preview" sandbox="allow-scripts"></iframe></div>
+
+    <section class="gallery" id="gallery" aria-label="Motion design gallery">
+      <div class="toolbar">
+        <div class="segmented sorts" aria-label="Sort designs" role="group">
+          <button type="button" data-sort="featured" aria-pressed="true">Featured</button>
+          <button type="button" data-sort="name" aria-pressed="false">A–Z</button>
+        </div>
+        <div class="segmented categories" id="categories" aria-label="Filter by category" role="group">
+          <button type="button" data-category="All" aria-pressed="true">All</button>
+          <button type="button" data-category="Apps" aria-pressed="false">Apps</button>
+          <button type="button" data-category="Hero" aria-pressed="false">Hero</button>
+          <button type="button" data-category="Landing Page" aria-pressed="false">Landing pages</button>
+          <button type="button" data-category="SaaS" aria-pressed="false">SaaS</button>
+          <button type="button" data-category="3D" aria-pressed="false">3D</button>
+          <button type="button" data-category="Portfolio" aria-pressed="false">Portfolio</button>
+          <button type="button" data-category="Creative" aria-pressed="false">Creative</button>
+          <button type="button" data-category="AI" aria-pressed="false">AI</button>
+          <button type="button" data-category="Ecommerce" aria-pressed="false">Ecommerce</button>
+        </div>
+        <div class="toolbar-actions">
+          <button id="motionToggle" class="pill muted" type="button" aria-pressed="false" aria-label="Pause motion previews" title="Pause motion previews">Ⅱ <span>Pause</span></button>
+          <select class="pill muted" id="accessFilter" aria-label="Filter by access">
+            <option value="all">All access</option>
+            <option value="free">Free source</option>
+          </select>
         </div>
       </div>
-      <div class="editor-footer"><span id="editor-status" role="status" aria-live="polite"></span><button class="button outline small" id="share">Copy remix link</button><button class="button outline small" id="prompt">Copy AI prompt</button><button class="button primary small" id="download">Export HTML <span aria-hidden="true">↓</span></button></div>
+      <div class="search-row" id="searchRow" hidden>
+        <label for="searchInput">Search designs</label>
+        <input id="searchInput" type="search" placeholder="Search a name, style, or category">
+      </div>
+      <p id="galleryCount" class="sr-only" role="status"></p>
+      <div id="designGrid" class="design-grid"><p class="gallery-message">Loading designs…</p></div>
+      <noscript><p class="gallery-message">Enable JavaScript to browse the motion previews.</p></noscript>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <a class="brand" href="/"><img src="/assets/favicon.svg" width="27" height="27" alt="">frameflux</a>
+    <p>Original motion demos and prompts.</p>
+    <a href="https://github.com/Sivanesanbalu/rameflux-landing-templates">GitHub <span aria-hidden="true">↗</span></a>
+  </footer>
+
+  <dialog id="detailDialog" aria-labelledby="detailTitle">
+    <div class="detail-content">
+      <header class="detail-header">
+        <div><p id="detailCategory"></p><h2 id="detailTitle">Design preview</h2></div>
+        <button id="detailClose" class="icon-button" type="button" aria-label="Close preview">×</button>
+      </header>
+      <div class="detail-layout">
+        <div class="detail-main">
+          <div class="detail-controls">
+            <div class="segmented" role="group" aria-label="Preview width">
+              <button id="desktopPreview" type="button" aria-pressed="true">Desktop</button>
+              <button id="mobilePreview" type="button" aria-pressed="false">Phone</button>
+            </div>
+            <a class="pill muted" id="openDemo" target="_blank" rel="noopener">Open live site ↗</a>
+          </div>
+          <div class="detail-frame"><iframe title="Interactive website demo" id="demoFrame"></iframe></div>
+        </div>
+        <aside class="detail-info">
+          <p id="detailDescription"></p>
+          <h3>Build prompt</h3>
+          <pre id="detailPrompt" tabindex="0"></pre>
+          <button class="pill light" type="button" id="copyPrompt">Copy prompt <span aria-hidden="true">⧉</span></button>
+          <a class="pill muted" href="https://lovable.dev/" id="lovablePrompt" target="_blank" rel="noopener">Build with Lovable ↗</a>
+          <a class="pill muted" href="https://chatgpt.com/" id="chatgptPrompt" target="_blank" rel="noopener">Open ChatGPT ↗</a>
+          <a class="pill muted" id="downloadOrbit" hidden download href="/downloads/orbit-template.zip">Download source ↓</a>
+          <p id="detailStatus" role="status"></p>
+        </aside>
+      </div>
     </div>
   </dialog>
+
+  <template id="cardTemplate">
+    <article class="design-card">
+      <button class="design-media" type="button">
+        <img alt="" loading="lazy" decoding="async">
+        <video muted loop playsinline preload="none" aria-hidden="true"></video>
+        <span class="media-action">Live preview ↗</span>
+      </button>
+      <div class="card-caption">
+        <div><h3></h3><p></p></div>
+        <button class="pill card-copy" type="button">Copy prompt <span aria-hidden="true">⧉</span></button>
+      </div>
+    </article>
+  </template>
+  <p class="toast" id="toast" role="status"></p>
 </body>
 </html>

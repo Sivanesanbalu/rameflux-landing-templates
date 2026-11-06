@@ -1,36 +1,227 @@
-
 'use strict';
-const grid=document.querySelector('#designGrid');
-const categories=document.querySelector('#categories');
-const sortButtons=[...document.querySelectorAll('[data-sort]')];
-const search=document.querySelector('#searchInput');
-const access=document.querySelector('#accessFilter');
-const dialog=document.querySelector('#detailDialog');
-const frame=document.querySelector('#demoFrame');
-const details={title:document.querySelector('#detailTitle'),cat:document.querySelector('#detailCategory'),desc:document.querySelector('#detailDescription'),prompt:document.querySelector('#detailPrompt'),link:document.querySelector('#openDemo'),lovable:document.querySelector('#lovablePrompt'),download:document.querySelector('#downloadOrbit')};
-const reducedMotion=window.matchMedia('(prefers-reduced-motion: reduce)');
-const previewObserver = 'IntersectionObserver' in window ? new IntersectionObserver(entries=>{for(const entry of entries){const card=entry.target;const video=card.querySelector('video');if(!video)continue;if(entry.isIntersecting&&entry.intersectionRatio>0.15){if(!reducedMotion.matches && !navigator.connection?.saveData){if(!video.src)video.src=video.dataset.src;video.play().then(()=>card.classList.add('is-playing')).catch(()=>{});}}else{video.pause();card.classList.remove('is-playing');}}},{rootMargin:'90px',threshold:[0,.2]}) : null;
-let designs=[];let activeCategory='All';let activeSort='Featured';let selected=null;let lastTrigger=null;let toastTimer;
-const demoUrl=id=>id==='orbit'?'/templates/orbit/':`/demos/${encodeURIComponent(id)}/`;
-const showToast=m=>{const el=document.querySelector('#toast');el.textContent=m;el.classList.add('visible');clearTimeout(toastTimer);toastTimer=setTimeout(()=>el.classList.remove('visible'),3200)};
-async function copyPrompt(value){try{if(navigator.clipboard&&window.isSecureContext){await navigator.clipboard.writeText(value);return true;}const input=document.createElement('textarea');input.value=value;input.style.position='fixed';input.style.left='-10000px';document.body.appendChild(input);input.select();const ok=document.execCommand('copy');input.remove();return ok;}catch{return false}}
-function matchesCategory(item){if(activeCategory==='All')return true;return item.category===activeCategory||item.type===activeCategory||(activeCategory==='Landing Page'&&item.type==='Landing Page')}
-function listFiltered(){let items=designs.filter(d=>matchesCategory(d));const term=search.value.trim().toLowerCase();if(term)items=items.filter(d=>`${d.title} ${d.category} ${d.subtitle} ${d.detail} ${d.type}`.toLowerCase().includes(term));if(access.value==='Free')items=items.filter(d=>d.id==='orbit');if(access.value==='Demos')items=items.filter(d=>d.id!=='orbit');if(activeSort==='Recent')items=[...items].reverse();if(activeSort==='Popular')items=[...items].sort((a,b)=>a.title.localeCompare(b.title));return items}
-function cardNode(d){const art=document.createElement('article');art.className='design-card';const media=document.createElement('button');media.className='design-media';media.type='button';media.setAttribute('aria-label',`Open ${d.title} interactive demo and build prompt`);const poster=document.createElement('img');poster.src=`/previews/${d.id}.webp`;poster.alt=`${d.title} original website design preview`;poster.loading='lazy';poster.decoding='async';media.appendChild(poster);const video=document.createElement('video');video.setAttribute('muted','');video.muted=true;video.loop=true;video.playsInline=true;video.preload='none';video.setAttribute('aria-hidden','true');video.poster=poster.src;video.dataset.src=`/previews/${d.id}.mp4`;media.appendChild(video);const glass=document.createElement('span');glass.className='media-glass';media.appendChild(glass);const view=document.createElement('span');view.className='media-view';view.textContent='WATCH THE EXPERIENCE ↗';media.appendChild(view);const caption=document.createElement('div');caption.className='design-info';const title=document.createElement('h3');title.textContent=d.title;const type=document.createElement('span');type.textContent=d.id==='orbit'?'Free source':d.category;const action=document.createElement('button');action.className='card-action';action.type='button';action.textContent='↗';action.setAttribute('aria-label',`Open ${d.title}`);caption.append(title,type,action);art.append(media,caption);media.addEventListener('click',()=>openDetails(d,media));action.addEventListener('click',()=>openDetails(d,action));const play=()=>{if(reducedMotion.matches)return;if(!video.src)video.src=video.dataset.src;video.play().then(()=>media.classList.add('is-playing')).catch(()=>{});};const pause=()=>{video.pause();media.classList.remove('is-playing')};media.addEventListener('mouseenter',play);media.addEventListener('focusin',play);previewObserver?.observe(media);return art}
-function render(){grid.querySelectorAll('.design-media').forEach(media=>previewObserver?.unobserve(media));const items=listFiltered();grid.replaceChildren(...items.map(cardNode));document.querySelector('#galleryCount').textContent=`${items.length} original ${items.length===1?'experience':'experiences'}`;if(!items.length){const empty=document.createElement('p');empty.textContent='No designs match those filters. Try another category.';empty.style.color='#aaa';grid.appendChild(empty)}}
-function setCategory(cat){activeCategory=cat;categories.querySelectorAll('[data-category]').forEach(el=>{let on=el.dataset.category===cat;el.classList.toggle('active',on);el.setAttribute('aria-pressed',String(on))});render()}
-function setMobile(mobile){document.querySelector('.detail-frame').classList.toggle('mobile',mobile);for(const [id,on] of [['mobilePreview',mobile],['desktopPreview',!mobile]]){const e=document.getElementById(id);e.classList.toggle('active',on);e.setAttribute('aria-pressed',String(on))}}
-function openDetails(item,el){selected=item;lastTrigger=el;details.title.textContent=item.title;details.cat.textContent=`${item.category.toUpperCase()} / ORIGINAL LIVE DEMO`;details.desc.textContent=item.detail;details.prompt.textContent=item.prompt;details.link.href=demoUrl(item.id);details.lovable.href=`https://lovable.dev/#prompt=${encodeURIComponent(item.prompt)}`;details.download.hidden=item.id!=='orbit';frame.src=demoUrl(item.id);setMobile(false);if(typeof dialog.showModal==='function')dialog.showModal();else window.open(demoUrl(item.id),'_blank','noopener')}
-function closeDetails(){dialog.close()}
-document.querySelector('#detailClose').addEventListener('click',closeDetails);
-dialog.addEventListener('click',e=>{if(e.target===dialog)closeDetails()});dialog.addEventListener('close',()=>{frame.src='about:blank';lastTrigger?.focus()});
-document.querySelector('#desktopPreview').addEventListener('click',()=>setMobile(false));document.querySelector('#mobilePreview').addEventListener('click',()=>setMobile(true));
-document.querySelector('#copyPrompt').addEventListener('click',async()=>showToast(await copyPrompt(selected?.prompt||'')?'Full prompt copied':'Copy failed — select the text manually'));
-document.querySelector('#chatgptPrompt').addEventListener('click',async()=>{window.open('https://chatgpt.com/','_blank','noopener,noreferrer');const ok=await copyPrompt(selected?.prompt||'');showToast(ok?'Prompt copied. Paste it into ChatGPT.':'Open ChatGPT, then manually copy the prompt.')});
-categories.addEventListener('click',e=>{const btn=e.target.closest('[data-category]');if(btn)setCategory(btn.dataset.category)});
-sortButtons.forEach(el=>el.addEventListener('click',()=>{activeSort=el.dataset.sort;sortButtons.forEach(b=>{const on=b===el;b.classList.toggle('active',on);b.setAttribute('aria-pressed',String(on))});render()}));
-search.addEventListener('input',render);access.addEventListener('change',render);
-document.querySelector('#searchToggle').addEventListener('click',()=>{document.querySelector('#gallery').scrollIntoView({behavior:reducedMotion.matches?'instant':'smooth'});search.focus({preventScroll:true})});
-document.querySelectorAll('[data-nav-filter]').forEach(el=>el.addEventListener('click',()=>setCategory(el.dataset.navFilter)));
-document.querySelector('#year').textContent=String(new Date().getFullYear());
-fetch('/data/gallery-v5.json').then(r=>{if(!r.ok)throw Error('Gallery data could not load');return r.json()}).then(data=>{designs=data;render()}).catch(()=>{grid.textContent='The collection could not load. Refresh to try again.'});
+
+const byId = id => document.getElementById(id);
+const grid = byId('designGrid');
+const categories = byId('categories');
+const sorts = [...document.querySelectorAll('[data-sort]')];
+const search = byId('searchInput');
+const access = byId('accessFilter');
+const dialog = byId('detailDialog');
+const frame = byId('demoFrame');
+const motionToggle = byId('motionToggle');
+const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)');
+const visibleVideos = new Set();
+
+let designs = [];
+let activeCategory = 'All';
+let activeSort = 'featured';
+let motionEnabled = !reducedMotion.matches && !navigator.connection?.saveData;
+let selected;
+let lastTrigger;
+let toastTimer;
+
+function syncVideo(video) {
+  if (motionEnabled && !document.hidden && !dialog.open && visibleVideos.has(video)) {
+    if (!video.hasAttribute('src')) video.src = video.dataset.src;
+    video.play().catch(() => {});
+  } else {
+    video.pause();
+  }
+}
+
+const observer = new IntersectionObserver(entries => {
+  for (const { target, isIntersecting, intersectionRatio } of entries) {
+    if (!target.isConnected) continue;
+    if (isIntersecting && intersectionRatio >= .15) visibleVideos.add(target);
+    else visibleVideos.delete(target);
+    syncVideo(target);
+  }
+}, { threshold: .15 });
+
+function setMotion(enabled) {
+  motionEnabled = enabled;
+  const action = enabled ? 'Pause' : 'Play';
+  motionToggle.textContent = (enabled ? 'Ⅱ ' : '▷ ') + action;
+  motionToggle.title = action + ' motion previews';
+  motionToggle.setAttribute('aria-label', motionToggle.title);
+  motionToggle.setAttribute('aria-pressed', String(!enabled));
+  visibleVideos.forEach(syncVideo);
+}
+
+motionToggle.addEventListener('click', () => setMotion(!motionEnabled));
+reducedMotion.addEventListener('change', event => setMotion(!event.matches && !navigator.connection?.saveData));
+document.addEventListener('visibilitychange', () => visibleVideos.forEach(syncVideo));
+setMotion(motionEnabled);
+
+function demoUrl(id) {
+  return id === 'orbit' ? '/templates/orbit/' : '/demos/' + encodeURIComponent(id) + '/';
+}
+
+function visibleDesigns() {
+  const term = search.value.trim().toLowerCase();
+  const items = designs.filter(item =>
+    (activeCategory === 'All' || activeCategory === item.category || activeCategory === item.type) &&
+    (access.value !== 'free' || item.id === 'orbit') &&
+    [item.title, item.category, item.type, item.subtitle, item.detail].join(' ').toLowerCase().includes(term)
+  );
+  return items.sort(activeSort === 'name' ?
+    (a, b) => a.title.localeCompare(b.title) :
+    (a, b) => a.order - b.order);
+}
+
+function setPressed(buttons, key, value) {
+  for (const button of buttons) button.setAttribute('aria-pressed', String(button.dataset[key] === value));
+}
+
+function setCategory(category) {
+  activeCategory = category;
+  setPressed(categories.querySelectorAll('button'), 'category', category);
+  render();
+}
+
+async function copyText(text) {
+  try {
+    await navigator.clipboard.writeText(text);
+    return true;
+  } catch {
+    const field = document.createElement('textarea');
+    field.value = text;
+    field.setAttribute('readonly', '');
+    field.style.cssText = 'position:fixed;inset:0 auto auto -9999px';
+    const focus = document.activeElement;
+    (dialog.open ? dialog : document.body).append(field);
+    field.select();
+    try {
+      return document.execCommand('copy');
+    } catch {
+      return false;
+    } finally {
+      field.remove();
+      focus?.focus();
+    }
+  }
+}
+
+function toast(message) {
+  byId('toast').textContent = message;
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(() => { byId('toast').textContent = ''; }, 3500);
+}
+
+function cardFor(item) {
+  const card = byId('cardTemplate').content.firstElementChild.cloneNode(true);
+  const media = card.querySelector('.design-media');
+  const poster = card.querySelector('img');
+  const video = card.querySelector('video');
+  const copyButton = card.querySelector('.card-copy');
+  poster.src = '/previews/' + item.id + '.webp';
+  video.poster = poster.src;
+  video.dataset.src = '/previews/' + item.id + '.mp4';
+  video.muted = true;
+  video.addEventListener('playing', () => media.classList.add('has-video'));
+  card.querySelector('h3').textContent = item.title;
+  card.querySelector('.card-caption p').textContent = item.id === 'orbit' ? 'SaaS · Free source' : item.type + ' · ' + item.category;
+  media.setAttribute('aria-label', 'Open ' + item.title + ' preview');
+  media.addEventListener('click', () => openDetails(item, media));
+  copyButton.setAttribute('aria-label', 'Copy prompt for ' + item.title);
+  copyButton.addEventListener('click', async () => {
+    if (await copyText(item.prompt)) toast('Prompt copied for ' + item.title + '.');
+    else {
+      openDetails(item, copyButton);
+      byId('detailStatus').textContent = 'Select the prompt text to copy it.';
+    }
+  });
+  return card;
+}
+
+function galleryMessage(message) {
+  const note = document.createElement('p');
+  note.className = 'gallery-message';
+  note.textContent = message;
+  grid.replaceChildren(note);
+}
+
+function render() {
+  for (const video of grid.querySelectorAll('video')) {
+    observer.unobserve(video);
+    visibleVideos.delete(video);
+    video.pause();
+  }
+  const items = visibleDesigns();
+  grid.replaceChildren(...items.map(cardFor));
+  for (const video of grid.querySelectorAll('video')) observer.observe(video);
+  byId('galleryCount').textContent = items.length + (items.length === 1 ? ' design' : ' designs');
+  if (!items.length) galleryMessage('No designs match these filters.');
+}
+
+function setMobile(mobile) {
+  frame.parentElement.classList.toggle('mobile', mobile);
+  byId('mobilePreview').setAttribute('aria-pressed', String(mobile));
+  byId('desktopPreview').setAttribute('aria-pressed', String(!mobile));
+}
+
+function openDetails(item, trigger) {
+  selected = item;
+  lastTrigger = trigger;
+  const href = demoUrl(item.id);
+  byId('detailTitle').textContent = item.title;
+  byId('detailCategory').textContent = item.category;
+  byId('detailDescription').textContent = item.detail;
+  byId('detailPrompt').textContent = item.prompt;
+  byId('detailStatus').textContent = '';
+  byId('openDemo').href = href;
+  byId('lovablePrompt').href = 'https://lovable.dev/#prompt=' + encodeURIComponent(item.prompt);
+  byId('downloadOrbit').hidden = item.id !== 'orbit';
+  frame.src = href;
+  setMobile(false);
+  dialog.showModal();
+  visibleVideos.forEach(syncVideo);
+}
+
+byId('detailClose').addEventListener('click', () => dialog.close());
+dialog.addEventListener('click', event => { if (event.target === dialog) dialog.close(); });
+dialog.addEventListener('close', () => {
+  frame.removeAttribute('src');
+  lastTrigger?.focus();
+  visibleVideos.forEach(syncVideo);
+});
+byId('desktopPreview').addEventListener('click', () => setMobile(false));
+byId('mobilePreview').addEventListener('click', () => setMobile(true));
+byId('copyPrompt').addEventListener('click', async () => {
+  byId('detailStatus').textContent = await copyText(selected.prompt) ?
+    'Prompt copied.' : 'Select the prompt text to copy it.';
+});
+
+for (const button of categories.querySelectorAll('button')) {
+  button.addEventListener('click', () => setCategory(button.dataset.category));
+}
+for (const link of document.querySelectorAll('[data-nav-filter]')) {
+  link.addEventListener('click', () => setCategory(link.dataset.navFilter));
+}
+for (const button of sorts) {
+  button.addEventListener('click', () => {
+    activeSort = button.dataset.sort;
+    setPressed(sorts, 'sort', activeSort);
+    render();
+  });
+}
+search.addEventListener('input', render);
+access.addEventListener('change', render);
+byId('searchToggle').addEventListener('click', () => {
+  byId('searchRow').hidden = false;
+  byId('gallery').scrollIntoView({ behavior: reducedMotion.matches ? 'instant' : 'smooth' });
+  search.focus({ preventScroll: true });
+});
+
+fetch('/data/gallery-v5.json')
+  .then(response => {
+    if (!response.ok) throw new Error('Gallery data unavailable');
+    return response.json();
+  })
+  .then(data => {
+    designs = data;
+    render();
+  })
+  .catch(() => {
+    galleryMessage('The gallery could not load. Refresh to try again.');
+  });
